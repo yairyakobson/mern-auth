@@ -1,0 +1,17 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file: ./frontend/.env
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    networks:
+      - docker-mern
+    command: npm run dev -- --host
+    environment:
+      - CHOKIDAR_USEPOLLING=true # Windows exclusive
+    depends_on:
+      - api
