@@ -1,0 +1,11 @@
+name: docker-mern
+
+services: {} # Empty, only extend from other files
+
+volumes:
+  mongo_data:
+  caddy_data:
+  caddy_config:
+networks:
+  docker-mern:
+    driver: bridge
