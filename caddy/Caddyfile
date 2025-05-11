@@ -1,0 +1,13 @@
+{
+    local_certs
+}
+
+auth.localhost { # client domain
+    encode gzip
+    reverse_proxy frontend:5173
+}
+
+api.auth.localhost { # server sub-domain
+    encode gzip
+    reverse_proxy api:4000
+}
