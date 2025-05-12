@@ -1,9 +1,9 @@
 services:
   caddy:
-    image: caddy:2-alpine
+    image: caddy:2.10.0-alpine
     ports:
-      - 80:80
-      - 443:443
+      - 80:80 # Default port for http
+      - 443:443 # Default port for https
     volumes:
       - ./caddy/Caddyfile:/etc/caddy/Caddyfile
       - caddy_data:/data
