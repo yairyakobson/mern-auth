@@ -1,14 +1,17 @@
 services:
   api:
+    image: yairyakobson/mern-auth:backend
     build:
-      context: ./backend
-      dockerfile: Dockerfile
-    restart: unless-stopped # Restarts the container unless manually stopped
+      context: ../backend
+      target: development
+    restart: unless-stopped
     env_file: ./backend/.env
     volumes:
-      - ./backend:/app # Map local machine directory to our container directory
-      - /app/node_modules # ignores the node_modules folder
+      - ./backend:/app
+      - /app/node_modules
     networks:
       - docker-mern
-    depends_on: # Runs api service after mongo service
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    depends_on:
       - mongo
