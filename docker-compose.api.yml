@@ -2,7 +2,8 @@ services:
   api:
     image: yairyakobson/mern-auth:backend
     build:
-      context: ../backend
+      context: ./backend
+      dockerfile: Dockerfile
       target: development
     restart: unless-stopped
     env_file: ./backend/.env

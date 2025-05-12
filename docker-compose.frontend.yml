@@ -1,8 +1,12 @@
 services:
   frontend:
+    image: yairyakobson/mern-auth:frontend
     build:
       context: ./frontend
       dockerfile: Dockerfile
+      target: development
+      args:
+        VITE_API_URL: https://api.auth.localhost
     restart: unless-stopped
     env_file: ./frontend/.env
     volumes:
@@ -12,6 +16,6 @@ services:
       - docker-mern
     command: npm run dev -- --host
     environment:
-      - CHOKIDAR_USEPOLLING=true # Windows exclusive
+      - CHOKIDAR_USEPOLLING=true
     depends_on:
       - api
