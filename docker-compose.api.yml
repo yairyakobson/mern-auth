@@ -2,13 +2,10 @@ services:
   api:
     build:
       context: ./backend
-      dockerfile: Dockerfile
-    restart: unless-stopped # Restarts the container unless manually stopped
+      target: production
+    restart: unless-stopped
     env_file: ./backend/.env
-    volumes:
-      - ./backend:/app # Map local machine directory to our container directory
-      - /app/node_modules # ignores the node_modules folder
     networks:
       - docker-mern
-    depends_on: # Runs api service after mongo service
+    depends_on:
       - mongo
