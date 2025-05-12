@@ -1,8 +1,6 @@
 services:
   mongo:
     image: mongo:latest
-    ports:
-      - 27017:27017
     volumes:
       - mongo_data:/data/db # mongo_data - named volume by Docker
     networks:
