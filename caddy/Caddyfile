@@ -1,13 +1,41 @@
-{
-    local_certs
+{$DOMAIN_NAME:invalid} {
+    encode gzip
+    reverse_proxy frontend:80
 }
 
-auth.localhost { # client domain
-    encode gzip
-    reverse_proxy frontend:5173
+www.{$DOMAIN_NAME:invalid} {
+	redir https://{$DOMAIN_NAME:invalid}{uri} permanent
 }
 
-api.auth.localhost { # server sub-domain
-    encode gzip
+api.{$DOMAIN_NAME:invalid} {
     reverse_proxy api:4000
+
+     header {
+        # Forces browsers to use the HTTPS protocol for a year (in seconds)
+        Strict-Transport-Security max-age=31536000;
+
+        # Trust the content type of data
+        X-Content-Type-Options nosniff
+
+        # Prevents embedded iframe elements
+        X-Frame-Options DENY
+
+        # XSS Protection (older browsers)
+        X-XSS-Protection "1; mode=block"
+     }
+
+     rate_limit {
+        # limit requests based on IP address
+        zone api_limit {
+            key {http.request.header.CF-Connecting-IP}
+            events 100 # Max number of requests
+            window 1m 
+        }
+
+        zone burst_limit {
+            key {http.request.header.CF-Connecting-IP}
+            events 20
+            window 1s
+        }
+    }
 }
