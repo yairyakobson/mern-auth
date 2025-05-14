@@ -6,10 +6,10 @@ import { Authentication } from "../../../types/authenticationTypes";
 import { oneYearFromNow } from "../../../utils/date";
 import { getVerifyEmailTemplate } from "../../../utils/email/templates/verifyEmailTemplate";
 import { refreshTokenSignOptions } from "../../../utils/jwt/refreshTokenSignOptions";
+import { sendEmail } from "../../../utils/email/sendEmail";
 import { signToken } from "../../../utils/jwt/signToken";
 
 import VerificationCodeType from "../../../constants/verificationCodeType";
-import sendEmail from "../../../utils/email/sendEmail";
 
 export const createAccount = async(data: Authentication) =>{
   const user = await createUser({
@@ -24,20 +24,15 @@ export const createAccount = async(data: Authentication) =>{
     expiresAt: oneYearFromNow()
   });
 
-  try{
-    const url = `${APP_ORIGIN}/email/verify/${emailVerify._id}`;
-    const emailTemplate = getVerifyEmailTemplate(url);
+  const url = `${APP_ORIGIN}/email/verify/${emailVerify._id}`;
 
-    await sendEmail({
-      to: user.email,
-      subject: emailTemplate.subject,
-      text: emailTemplate.text,
-      html: emailTemplate.html
-    });
-  }
-  catch(error){
-    console.error(error);
-  }
+  // send verification email
+  const { error } = await sendEmail({
+    to: user.email,
+    ...getVerifyEmailTemplate(url),
+  });
+  // ignore email errors for now
+  if (error) console.error(error);
 
   const session = await createRegisterSession({
     userId,
