@@ -1,4 +1,4 @@
-import { APP_ORIGIN } from "../../../constants/env";
+import { APP_ORIGIN, SMTP_FROM_EMAIL } from "../../../constants/env";
 import { NOT_FOUND, TOO_MANY_REQUESTS } from "../../../constants/httpCodes";
 import { fiveMinutesAgo, oneHourFromNow } from "../../../utils/date";
 import { getPasswordResetTemplate } from "../../../utils/email/templates/passwordResetTemplate";
@@ -40,6 +40,7 @@ export const sendResetPasswordEmail = async(data: ForgotPasswordTypes) =>{
     const emailTemplate = getPasswordResetTemplate(url);
 
     await sendEmail({
+      from: SMTP_FROM_EMAIL,
       to: user.email,
       subject: emailTemplate.subject,
       text: emailTemplate.text,
