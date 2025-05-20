@@ -1,5 +1,6 @@
 services:
   api:
+    image: yairyakobson/mern-auth:backend
     build:
       context: ./backend
       target: production
