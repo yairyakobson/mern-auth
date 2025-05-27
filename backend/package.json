@@ -6,28 +6,28 @@
   "scripts": {
     "dev": "ts-node-dev --files server.ts index.d.ts",
     "start": "node server.js",
-    "build": "rimraf dist && tsc"
+    "dev-build": "tsc && cp ./package.json ./dist"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.1.1",
+    "bcrypt": "^6.0.0",
     "colors": "^1.4.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.14.3",
+    "mongoose": "^8.15.1",
     "nodemailer": "^7.0.3",
-    "zod": "^3.24.4"
+    "zod": "^3.25.30"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
     "@types/cookie-parser": "^1.4.8",
     "@types/cors": "^2.8.18",
-    "@types/express": "^5.0.1",
+    "@types/express": "^5.0.2",
     "@types/jsonwebtoken": "^9.0.9",
     "@types/nodemailer": "^6.4.17",
     "ts-node-dev": "^2.0.0",
