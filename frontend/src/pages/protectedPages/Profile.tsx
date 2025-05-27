@@ -20,9 +20,8 @@ const Profile = () =>{
       <section className="flex items-center justify-center bg-gray-50">
         <section className="w-full max-w-md space-y-8 bg-gray-100 p-6 rounded-lg shadow-lg">
         <section className="text-center">
-          <h2 className="text-xl font-bold
-          sm:text-2xl
-          lg:text-3xl">My Account
+          <h2 className="text-2xl font-bold form-title
+          md:text-3xl">My Account
           </h2>
         </section>
 
@@ -30,19 +29,19 @@ const Profile = () =>{
           {data.verified ? (
             <>
               <p className="text-inherit text-center mb-2">
-                <span className="text-inherit font-bold">
+                <span className="text-[1.1rem] font-bold">
                   Email:{" "}
                 </span>
-                <span className="text-inherit">
+                <span className="text-[1.1rem]">
                   {data.email}
                 </span>
               </p>
 
               <p className="text-inherit text-center">
-                <span className="text-inherit font-bold">
+                <span className="text-[1.1rem] font-bold">
                   Created On:{" "}
                 </span>
-                <span className="text-inherit">
+                <span className="text-[1.1rem]">
                   {createdAt}
                 </span>
               </p>

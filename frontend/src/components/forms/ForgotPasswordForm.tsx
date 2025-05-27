@@ -43,24 +43,21 @@ const ForgotPasswordForm: React.FC<ResetPasswordProps> = ({
     <section className="flex items-center justify-center bg-gray-50">
       <section className="w-full max-w-md space-y-8 bg-gray-100 p-6 rounded-lg shadow-lg">
         <section className="text-center">
-          <h2 className="text-xl font-bold
-          sm:text-2xl
-          lg:text-3xl">Reset your password
+          <h2 className="text-2xl font-bold form-title
+          md:text-3xl">Reset your password
           </h2>
         </section>
 
         <form onSubmit={submitHandler} className="space-y-6">
           <section>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-900
-            sm:text-base">Email Address
+            <label htmlFor="email" className="block text-base font-medium text-gray-900 form-label">Email Address
             </label>
             <input name="email"
             type="email"
             id="email"
             defaultValue={resetPasswordRef?.current?.email}
             onChange={resetPasswordHandler}
-            className="mt-2 w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 shadow-sm
-            sm:text-sm
+            className="mt-2 w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 text-base shadow-sm
             md:text-base
             focus:border-indigo-500
             focus:ring-indigo-500"/>
@@ -68,8 +65,7 @@ const ForgotPasswordForm: React.FC<ResetPasswordProps> = ({
 
           <button
           type="submit"
-          className="w-full rounded-md mt-6 bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm
-          sm:text-base
+          className="w-full rounded-md mt-6 bg-indigo-600 px-4 py-2 text-base font-semibold text-white shadow-sm form-label
           focus:outline-none
           focus:ring-2
           focus:ring-indigo-500

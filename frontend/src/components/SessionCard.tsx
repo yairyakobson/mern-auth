@@ -8,8 +8,8 @@ const SessionCard = ({ session }: { session: SessionProps }) =>{
   
   return (
     <section className="flex border mb-3">
-      <section className="flex-1">
-        <p className="font-bold text-sm mb-1 p-2">
+      <section className="flex-1 p-4">
+        <h2 className="card-title mb-1 px-1 session-date text-xl">
           {new Date(createdAt).toLocaleString("en-US",
             { month: "long",
               day: "numeric",
@@ -17,18 +17,17 @@ const SessionCard = ({ session }: { session: SessionProps }) =>{
             })}
             {" "}
           ({new Date(createdAt).toLocaleTimeString()})
-          {isCurrent && " (current session)"}
-        </p>
-        <p className="bg-gray-200 text-xs p-3">
-          {userAgent}
-        </p>
+          {isCurrent ? (
+            <section className="badge badge-success sticky">Current Session</section>
+          ) : (
+            <button className="btn btn-sm ml-auto text-xl text-red-400 bg-transparent border-transparent"
+            onClick={() => deleteSession()}>
+              <RxCrossCircled size="1.5rem"/>
+            </button>
+          )}
+        </h2>
+        <p className="text-[1.1rem] mt-2 bg-base-300 p-3 session-info">{userAgent}</p>
       </section>
-      {!isCurrent && (
-        <button className="btn btn-sm ml-4 self-center text-xl text-red-400 bg-base-100 border-transparent"
-        onClick={() => deleteSession()}>
-          <RxCrossCircled size="1.5rem"/>
-        </button>
-      )}
     </section>
   )
 }
