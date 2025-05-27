@@ -59,16 +59,14 @@ const LoginForm: React.FC<LoginFormProps> = ({
     <section className="flex items-center justify-center bg-gray-50">
       <section className="w-full max-w-md space-y-8 bg-gray-100 p-6 rounded-lg shadow-lg">
         <section className="text-center">
-          <h2 className="text-xl font-bold
-          sm:text-2xl
-          lg:text-3xl">Sign in to your account
+          <h2 className="text-2xl font-bold form-title
+          md:text-3xl">Sign in to your account
           </h2>
         </section>
 
         <form onSubmit={submitHandler} className="space-y-6">
           <section>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-900
-            sm:text-base">Email address
+            <label htmlFor="email" className="block text-base font-medium text-gray-900 form-label">Email Address
             </label>
             <input name="email"
             type="email"
@@ -76,7 +74,6 @@ const LoginForm: React.FC<LoginFormProps> = ({
             defaultValue={loginDataRef?.current?.email}
             onChange={emailHandler}
             className="mt-2 w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 shadow-sm
-            sm:text-sm
             md:text-base
             focus:border-indigo-500
             focus:ring-indigo-500"/>
@@ -84,8 +81,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
 
           <section>
             <section className="flex items-center justify-between">
-              <label htmlFor="password" className="block text-sm font-medium text-gray-900
-              sm:text-base">Password
+              <label htmlFor="password" className="block text-base font-medium text-gray-900 form-label">Password
               </label>
             </section>
             <input name="password"
@@ -94,19 +90,16 @@ const LoginForm: React.FC<LoginFormProps> = ({
             defaultValue={loginDataRef?.current?.password}
             onChange={passwordHandler}
             className="mt-2 w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 shadow-sm
-            sm:text-sm
-            md:text-base
             focus:border-indigo-500
             focus:ring-indigo-500"/>
           </section>
-          <Link to="/password/forgot" className="text-sm font-medium text-indigo-600
+          <Link to="/password/forgot" className="text-base font-medium text-indigo-600
           hover:text-indigo-500">Forgot password?
           </Link>
 
           <button
           type="submit"
-          className="w-full rounded-md mt-6 bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm
-          sm:text-base
+          className="w-full rounded-md mt-6 bg-indigo-600 px-4 py-2 text-lg font-semibold text-white shadow-sm
           focus:outline-none
           focus:ring-2
           focus:ring-indigo-500
@@ -116,9 +109,11 @@ const LoginForm: React.FC<LoginFormProps> = ({
           </button>
         </form>
 
-        <p className="text-center text-sm text-gray-600">
+        <p className="text-center text-gray-600 font-medium
+        md:text-[1rem]
+        lg:text-[1rem]">
           Not a member?{" "}
-          <Link to="/register" className="font-medium text-indigo-600
+          <Link to="/register" className="text-indigo-600 font-medium
           hover:text-indigo-500">Sign Up
           </Link>
         </p>

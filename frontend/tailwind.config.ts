@@ -9,7 +9,6 @@ export default{
   ],
   theme: {
     screens: {
-      sm: { raw: "(max-width: 640px)" },  // Works for max-width
       md: { raw: "(min-width: 641px) and (max-width: 768px)" },
       lg: { raw: "(min-width: 769px) and (max-width: 1024px)" },
       xl: { raw: "(min-width: 1025px) and (max-width: 1280px)" },

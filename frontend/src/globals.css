@@ -1,2 +1,21 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+@media(max-width: 640px){
+  .form-label{
+    font-size: 1rem;
+  }
+  .form-title{
+    font-size: 1.5rem;
+    line-height: calc(2 / 1.5);
+  }
+  .session-date{
+    font-size: 1.3rem;
+  }
+  .session-info{
+    font-size: 1rem;
+  }
+  .profile-data{
+    font-size: 1.5rem;
+  }
+}
