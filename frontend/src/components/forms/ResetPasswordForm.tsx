@@ -68,24 +68,21 @@ const ResetPasswordForm: React.FC<NewPasswordProps> = ({
         ) : (
           <>
             <section className="text-center">
-              <h2 className="text-xl font-bold
-              sm:text-2xl
-              lg:text-3xl">Create a new password
+              <h2 className="text-2xl font-bold form-title
+              md:text-3xl">Create a new password
               </h2>
             </section>
 
             <form onSubmit={submitHandler} className="space-y-6">
               <section>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-900
-                sm:text-base">Your new password
+                <label htmlFor="password" className="block text-[0.85rem] font-medium text-gray-900 form-label">Your new password
                 </label>
                 <input name="password"
                 type="password"
                 id="password"
                 defaultValue={newPasswordRef?.current?.password}
                 onChange={newPasswordHandler}
-                className="mt-2 w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 shadow-sm
-                sm:text-sm
+                className="mt-2 w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 shadow-sm text-base
                 md:text-base
                 focus:border-indigo-500
                 focus:ring-indigo-500"/>
@@ -94,8 +91,7 @@ const ResetPasswordForm: React.FC<NewPasswordProps> = ({
 
               <button
               type="submit"
-              className={`w-full rounded-md mt-6 bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm
-              sm:text-base
+              className={`w-full rounded-md mt-6 bg-indigo-600 px-4 py-2 text-base font-semibold text-white shadow-sm
               focus:outline-none
               focus:ring-2
               focus:ring-indigo-500

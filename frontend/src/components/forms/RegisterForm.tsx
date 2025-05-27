@@ -54,16 +54,14 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
     <section className="flex items-center justify-center bg-gray-50">
       <section className="w-full max-w-md space-y-8 bg-gray-100 p-6 rounded-lg shadow-lg">
         <section className="text-center">
-          <h2 className="text-xl font-bold
-          sm:text-2xl
-          lg:text-3xl">Create a new account
+          <h2 className="text-2xl font-bold form-title
+          md:text-3xl">Create a new account
           </h2>
         </section>
 
         <form onSubmit={submitHandler} className="space-y-6">
           <section>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-900
-            sm:text-base">Email address
+            <label htmlFor="email" className="block font-medium text-gray-900 form-label">Email Address
             </label>
             <input name="email"
             type="email"
@@ -71,7 +69,6 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
             defaultValue={registerDataRef?.current?.email}
             onChange={emailHandler}
             className="mt-2 w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 shadow-sm
-            sm:text-sm
             md:text-base
             focus:border-indigo-500
             focus:ring-indigo-500"/>
@@ -79,8 +76,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
 
           <section>
             <section className="flex items-center justify-between">
-              <label htmlFor="password" className="block text-sm font-medium text-gray-900
-              sm:text-base">Password
+              <label htmlFor="password" className="block text-[1rem] font-medium text-gray-900 form-label">Password
               </label>
             </section>
             <input name="password"
@@ -89,17 +85,15 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
             defaultValue={registerDataRef?.current?.password}
             onChange={passwordHandler}
             className="mt-2 w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 shadow-sm
-            sm:text-sm
             md:text-base
             focus:border-indigo-500
             focus:ring-indigo-500"/>
-            <p className="text-xs mt-2">Must be at least 6 characters long.</p>
+            <p className="text-sm mt-2">Must be at least 6 characters long.</p>
           </section>
 
           <section>
             <section className="flex items-center justify-between">
-              <label htmlFor="password" className="block text-sm font-medium text-gray-900
-              sm:text-base">Confirm Password
+              <label htmlFor="password" className="block text-base font-medium text-gray-900 form-label">Confirm Password
               </label>
             </section>
             <input name="confirmPassword"
@@ -108,7 +102,6 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
             defaultValue={registerDataRef?.current?.confirmPassword}
             onChange={confirmPasswordHandler}
             className="mt-2 w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 shadow-sm
-            sm:text-sm
             md:text-base
             focus:border-indigo-500
             focus:ring-indigo-500"/>
@@ -116,8 +109,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
 
           <button
           type="submit"
-          className="w-full rounded-md mt-6 bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm
-          sm:text-base
+          className="w-full rounded-md mt-6 bg-indigo-600 px-4 py-2 text-lg font-semibold text-white shadow-sm
           focus:outline-none
           focus:ring-2
           focus:ring-indigo-500
@@ -127,7 +119,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
           </button>
         </form>
 
-        <p className="text-center text-sm text-gray-600">
+        <p className="text-center text-base text-gray-600 font-medium">
           Already have an account?{" "}
           <Link to="/login" className="font-medium text-indigo-600
           hover:text-indigo-500">
